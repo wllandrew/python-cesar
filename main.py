@@ -27,28 +27,8 @@ class Cifra:
             with open(self.name, 'w') as txt:
                 txt.write(self.criptografarMenor(self.texto, self.chave))
 
-    '''
-    def criptografar(self):
-        stringDecript = []
-        chaveReal = self.chave if self.modo == 'cifrar' else (0 - self.chave)
-        
-        if self.modo == 'forcabruta':
-            self.forcaBruta()
-
-        for n in self.texto:
-            if ord(n) > 64 and ord(n) < 91:
-                stringDecript.append(chr((ord(n) - 65 + chaveReal) % 26 + 65))
-            elif ord(n) > 96 and ord(n) < 123:
-                stringDecript.append(chr((ord(n) - 97 + chaveReal) % 26 + 97))
-            else:
-                stringDecript.append(n)
-
-        self.texto = ''.join(stringDecript)
-        self.escrever()
-    '''
-    # Método que criptografa isoladamente, pode parecer redundante, mas pela arquitetura do código não é.
     @staticmethod
-    def criptografarMenor(texto, chave):
+    def criptografarMenor(texto, chave : int) -> str:
         stringDecript = []
         for n in texto:
             if ord(n) > 64 and ord(n) < 91:
@@ -61,7 +41,6 @@ class Cifra:
 
     @staticmethod
     def maisFrequente(lst : list) -> int | None:
-        contador = 0
         valor = 0
 
         for i in lst:
