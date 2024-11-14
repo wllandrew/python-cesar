@@ -25,10 +25,10 @@ class Cifra:
             self.forcaBruta()
         else: 
             with open(self.name, 'w') as txt:
-                txt.write(self.criptografarMenor(self.texto, self.chave))
+                txt.write(self.criptografar(self.texto, self.chave))
 
     @staticmethod
-    def criptografarMenor(texto, chave : int) -> str:
+    def criptografar(texto, chave : int) -> str:
         stringDecript = []
         for n in texto:
             if ord(n) > 64 and ord(n) < 91:
@@ -55,12 +55,12 @@ class Cifra:
         resp = []
         for word in self.pc:
             for n in range(26):
-                if word in self.criptografarMenor(self.texto, n) and len(word) > 2:
+                if word in self.criptografar(self.texto, n) and len(word) > 2:
                     resp.append(n)
 
         ch = self.maisFrequente(resp)
 
-        print(f'Chave: {ch}\n Texto: {self.criptografarMenor(self.texto, ch)}')
+        print(f'Chave: {ch}\n Texto: {self.criptografar(self.texto, ch)}')
 
 cif = Cifra("texto.txt")
 cif.escrever()
