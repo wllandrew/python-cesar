@@ -1,18 +1,54 @@
 import json
 
 class Cifra:
+
+    # Construtor que define o texto a ser criptografado e configurações.
+    def __init__(self, fileName : str):
+        self.fileName = fileName
+
+        with open(self.fileName, 'r') as File:
+            self.Text = File.read()
+
+        with open("config.json", 'r') as Config:
+            Configurations = json.load(Config)
+
+        self.Mode = Configurations['mode']
+
+        if self.Mode == "bruteforce":
+            self.BruteForce()
+        else:
+            self.Encrypt()
+
+        self.Key = Configurations['key']
+
+    
+    def Encrypt(self):
+        pass
+    
+    def BruteForce(self) -> int | list[int]:
+        pass
+
+    @staticmethod
+    def CaesarAlgorithm(key : int, text : str) -> str:
+        pass
+
+def Main():
+    cif = Cifra("texto.txt")
+
+if __name__ == "__main__":
+    Main()
+
+
+"""
+class Cifra:
     def __init__(self, name: str):
         self.name = name
 
-        with open(name, 'r') as doc:
+        with open(self.name, 'r') as doc:
             self.texto = doc.read()
 
         with open('config.json', 'r') as js:
             config = json.load(js)
-
-        with open('palavrasComuns.txt', 'r', encoding="UTF-8") as pc:
-            self.pc = pc.read()
-            self.pc = self.pc.split("\n")
 
         self.modo = config['modo']
         self.chave = config['chave']
@@ -52,8 +88,13 @@ class Cifra:
         return valor
 
     def forcaBruta(self):
+    
+        with open('palavrasComuns.txt', 'r', encoding="UTF-8") as pc:
+                self.palavrasComuns = pc.read()
+                self.palavrasComuns = self.palavrasComuns.split("\n")
+
         resp = []
-        for word in self.pc:
+        for word in self.palavrasComuns:
             for n in range(26):
                 if word in self.criptografar(self.texto, n) and len(word) > 2:
                     resp.append(n)
@@ -62,5 +103,11 @@ class Cifra:
 
         print(f'Chave: {ch}\n Texto: {self.criptografar(self.texto, ch)}')
 
-cif = Cifra("texto.txt")
-cif.escrever()
+def Main():
+    cif = Cifra("texto.txt")
+    cif.escrever()
+
+if __name__ == "__main__":
+    Main()
+
+"""
