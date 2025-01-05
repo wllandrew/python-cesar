@@ -1,4 +1,4 @@
 {
-    "Key" : 1,
-    "Mode" : "encrypt"
+    "Key" : 4,
+    "Mode" : "bruteforce"
 }
