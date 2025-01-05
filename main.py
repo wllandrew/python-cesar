@@ -16,12 +16,10 @@ class Cifra:
         self.Key = Configurations['Key']
 
         # Métodos na inicialização
-
         if not self.Mode == "bruteforce":
             self.Encrypt()
 
         else:
-            
             # Saber a diferença entre a chave provavel e atual permite a descriptografagem
 
             (likelyKey, actualKey) = self.BruteForce()
@@ -41,11 +39,10 @@ class Cifra:
 
         with open(self.fileName, 'w') as File:
             File.write(Cifra.CaesarAlgorithm(key, self.Text))
-
     
     # Método força bruta para achar uma key descriptografadora
     def BruteForce(self) -> int | list[int]:
-        
+    
         ''' 
         Primeiro, ler um pedaço do texto, 
         Segundo, separar apenas as pelavras completas desse trecho,
@@ -69,16 +66,14 @@ class Cifra:
         with open("palavrasComuns.txt", 'r', encoding="UTF-8") as PalavrasComuns:
             self.PalavrasComuns = PalavrasComuns.read()
 
-        # O(n^2)
+        # O(nm)
         key_occurences = dict()
         for key, value in key_words.items():
             for word in value:
                 if word in self.PalavrasComuns:
                     key_occurences[key] = 1 + key_occurences.get(key, 0)
 
-
         return (max(key_occurences, key=key_occurences.get), actualKey)
-
 
     # Método estático que implementa o algoritmo de criptografagem de césar
     @staticmethod
@@ -88,17 +83,16 @@ class Cifra:
         for character in text:
             
             # Problema: não inclui caracteres especiais, como acentos
-            if character.isalpha():
+            if not character.isalpha():
+                encrypt += character
+            else:
                 if ord(character) >= 65 and ord(character) <= 90:
                     encrypt += chr((ord(character) - 65 + key) % 26 + 65)
                 else:
                     encrypt += chr((ord(character) - 97 + key) % 26 + 97)
-            else:
-                encrypt += character
 
         return encrypt
             
-
 def Main():
     cif = Cifra("texto.txt")
 
