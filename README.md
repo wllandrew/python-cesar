@@ -28,7 +28,7 @@ Após alterar os arquivos __config.json__ e __texto.json__ à sua escolha, rode 
 python main.py
 ```
 
-<p>
+<p align="center">
   <img src="https://github.com/user-attachments/assets/75044d71-fe46-473a-981f-5a1292350753" alt="animated"/>
 </p>
 
@@ -40,6 +40,8 @@ python main.py
 
   Configure o "Mode" em __config.json__ para "bruteforce" e roda o programa. Ele irá retornar a chave provável e irá perguntar se você quer descriptografar, assim aplicando a chave provável automaticamente.
 
-![gif2](https://github.com/user-attachments/assets/de722852-118d-4742-87d3-27d0ac1085ab)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/de722852-118d-4742-87d3-27d0ac1085ab" alt="animated"/>
+</p>
 
 
