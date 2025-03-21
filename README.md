@@ -27,7 +27,10 @@ Após alterar os arquivos __config.json__ e __texto.json__ à sua escolha, rode 
 ```bash
 python main.py
 ```
-![gif](https://github.com/user-attachments/assets/75044d71-fe46-473a-981f-5a1292350753)
+
+<p>
+  <img src="https://github.com/user-attachments/assets/75044d71-fe46-473a-981f-5a1292350753" alt="animated"/>
+</p>
 
 # Decifragem por força bruta.
 
